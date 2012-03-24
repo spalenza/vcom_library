@@ -22,6 +22,15 @@ end
 
 gem 'jquery-rails'
 
+# Devise => https://github.com/plataformatec/devise
+gem 'devise'
+
+# Haml => http://haml-lang.com/
+gem "haml"
+
+# Twitter Bootstrap => https://github.com/seyhunak/twitter-bootstrap-rails
+gem "twitter-bootstrap-rails"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
