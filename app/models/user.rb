@@ -8,6 +8,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_many :vcoms
-  has_one :libary
+  has_one :directory
   has_one :profile
+  
+  after_initialize :set_root_directory
+  
+  private
+    def set_root_directory
+        self.directory ||= Directory.new name: "root"
+    end
 end

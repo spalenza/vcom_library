@@ -11,14 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324162959) do
+ActiveRecord::Schema.define(:version => 20120327065124) do
 
   create_table "components", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "component_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
+
+  add_index "components", ["component_id"], :name => "index_components_on_component_id"
 
   create_table "components_vcoms", :id => false, :force => true do |t|
     t.integer "vcom_id"
@@ -30,12 +33,14 @@ ActiveRecord::Schema.define(:version => 20120324162959) do
 
   create_table "directories", :force => true do |t|
     t.string   "name"
-    t.integer  "libary_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "ancestry"
   end
 
-  add_index "directories", ["libary_id"], :name => "index_directories_on_libary_id"
+  add_index "directories", ["ancestry"], :name => "index_directories_on_ancestry"
+  add_index "directories", ["user_id"], :name => "index_directories_on_user_id"
 
   create_table "directories_vcoms", :id => false, :force => true do |t|
     t.integer "directory_id"
@@ -44,14 +49,6 @@ ActiveRecord::Schema.define(:version => 20120324162959) do
 
   add_index "directories_vcoms", ["directory_id"], :name => "index_directories_vcoms_on_directory_id"
   add_index "directories_vcoms", ["vcom_id"], :name => "index_directories_vcoms_on_vcom_id"
-
-  create_table "libaries", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "libaries", ["user_id"], :name => "index_libaries_on_user_id"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
@@ -62,16 +59,6 @@ ActiveRecord::Schema.define(:version => 20120324162959) do
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
-
-  create_table "subcomponents", :force => true do |t|
-    t.integer  "component_id"
-    t.integer  "child_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "subcomponents", ["child_id"], :name => "index_subcomponents_on_child_id"
-  add_index "subcomponents", ["component_id"], :name => "index_subcomponents_on_component_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

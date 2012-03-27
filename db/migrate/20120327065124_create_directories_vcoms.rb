@@ -6,9 +6,8 @@ class CreateDirectoriesVcoms < ActiveRecord::Migration
     end
     
     add_index :directories_vcoms, :directory_id
-    add_index :directories_vcoms, :vcom_id
+    add_index :directories_vcoms, :vcom_id    
   end
-  
 
   def down
     drop_table :directories_vcoms

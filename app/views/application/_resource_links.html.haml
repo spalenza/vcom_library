@@ -1,0 +1,20 @@
+#resource_links.pull-right
+  - if action_name == 'index'
+
+    - if respond_to?(:parent?) && parent?
+      = link_to parent_url, class: 'btn btn-primary' do
+        %i.icon-white.icon-chevron-left
+        = parent.name || parent.to_s
+
+    = link_to new_resource_path, class: 'btn' do
+      %i.icon-plus
+      = t('resource.new', resource: resource_class.model_name.human)
+
+  - else
+
+    = link_to t('resource.index', :resource => resource_class.model_name.human.pluralize),
+              collection_path, :class => 'btn'
+
+  - if action_name == 'show'
+    = link_to t('resource.edit', :resource => resource_class.model_name.human),
+              edit_resource_path(resource), :class => 'btn primary'

@@ -1,0 +1,6 @@
+.inherited-resource{id: "#{resource_class.model_name.element}-#{resource.id}", class: [resource_class.model_name.element, "#{action_name}-action"] }
+  = render 'resource_links'
+
+  %h2= t('resource.edit', resource: resource_class.model_name.human)
+
+  = render 'form'

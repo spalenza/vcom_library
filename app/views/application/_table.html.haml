@@ -1,0 +1,12 @@
+%table.table.table-bordered.table-striped.resource-listing{ id: "#{resource_class.to_s.tableize}" }
+  %thead
+    %tr
+      = render 'table_head'
+      %th{colspan: 2}
+
+  %tbody
+    - (@collection || collection).each do |item|
+      - resource_locals = { :item => item, resource_class.model_name.element.to_sym => item }
+      %tr
+        = render :partial => 'columns', locals: resource_locals
+        = render :partial => 'actions', locals: resource_locals

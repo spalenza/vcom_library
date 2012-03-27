@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LibaryTest < ActiveSupport::TestCase
+class LibrariesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
