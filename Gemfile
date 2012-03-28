@@ -40,7 +40,13 @@ group :assets do
 
   # Twitter Bootstrap => https://github.com/seyhunak/twitter-bootstrap-rails
   gem "twitter-bootstrap-rails"
+  
+  # Compass => https://github.com/Compass/compass-rails
+#  gem 'compass-rails'
 end
+
+# RABL Json => https://github.com/nesquena/rabl
+gem 'rabl'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
