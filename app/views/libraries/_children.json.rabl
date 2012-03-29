@@ -1,11 +1,15 @@
-attributes :id, :name
+attribute :name => :data
 
-node(:vcoms, :unless => lambda { |directory| directory.vcoms.empty? }) do |directory|
-  partial("libraries/vcoms", :object => directory.vcoms)
+node :attr do |u|
+  if u.class == Directory
+    attributes :id => u.id, :rel => :folder
+  else
+    attributes :id => u.id, :rel => :file
+  end
 end
 
-
-node(:directories, :if => lambda { |directory| directory.has_children? }) do |directory|
-  partial("libraries/children", :object => directory.children)
+node(:children) do |directory|
+  if directory.class == Directory and directory.has_children?
+    partial("libraries/children", :object => directory.ls)
+  end
 end
-

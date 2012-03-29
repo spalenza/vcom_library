@@ -1,12 +1,18 @@
 object @directory
-attributes :id, :name
+attribute :name => :data
 
-unless @directory.vcoms.empty?
-  child :vcoms do
-     attributes :id, :name
-  end
+# Pasta root expandida.
+node :state do
+  "open"
 end
 
-node :directories, :if => lambda { |directory| directory.has_children? } do
-  partial("libraries/children", :object => @directory.children)
+node :attr do
+  attributes :id => @directory.id, :rel => :root
+end
+
+
+node :children do
+  unless @directory.ls.empty?
+    partial("libraries/children", :object => @directory.ls)
+  end
 end
