@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(:version => 20120327065124) do
   add_index "directories", ["user_id"], :name => "index_directories_on_user_id"
 
   create_table "directories_vcoms", :id => false, :force => true do |t|
-    t.integer "directory_id"
     t.integer "vcom_id"
+    t.integer "directory_id"
   end
 
   add_index "directories_vcoms", ["directory_id"], :name => "index_directories_vcoms_on_directory_id"

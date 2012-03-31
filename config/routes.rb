@@ -3,9 +3,13 @@ VcomLibary::Application.routes.draw do
   devise_for :users
   
   resource :library do
+    resources :directories do
+      member do
+        post :move
+      end
+    end
     member do
       get :index
-      get :directory
     end
   end
 

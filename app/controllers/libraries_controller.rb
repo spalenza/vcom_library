@@ -4,10 +4,5 @@ class LibrariesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    
-  end
-  
-  def directory
-    @directory = current_user.directory
   end
 end

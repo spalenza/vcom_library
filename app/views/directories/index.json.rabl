@@ -13,6 +13,6 @@ end
 
 node :children do
   unless @directory.ls.empty?
-    partial("libraries/children", :object => @directory.ls)
+    partial("directories/children", :object => @directory.ls)
   end
 end

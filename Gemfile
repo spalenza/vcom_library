@@ -41,6 +41,10 @@ group :assets do
   # Twitter Bootstrap => https://github.com/seyhunak/twitter-bootstrap-rails
   gem "twitter-bootstrap-rails"
   
+  # jsTree Rails => https://github.com/tristanm/jstree-rails
+  gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
+  gem 'jquery-hotkeys-rails'
+  
   # Compass => https://github.com/Compass/compass-rails
 #  gem 'compass-rails'
 end

@@ -11,10 +11,11 @@ class User < ActiveRecord::Base
   has_one :directory
   has_one :profile
   
-  after_initialize :set_root_directory
+  after_create :set_directories
   
   private
-    def set_root_directory
-        self.directory ||= Directory.new name: "root"
+    def set_directories
+        self.directory ||= Directory.create name: "root"
+        self.directory.children.create name: "My Vcoms", user: self
     end
 end

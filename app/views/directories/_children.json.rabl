@@ -8,8 +8,6 @@ node :attr do |u|
   end
 end
 
-node(:children) do |directory|
-  if directory.class == Directory and directory.has_children?
-    partial("libraries/children", :object => directory.ls)
-  end
+node :children do |directory|
+  partial("directories/children", :object => directory.respond_to?(:ls) ? directory.ls : [])
 end
