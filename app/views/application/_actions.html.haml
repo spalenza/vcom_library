@@ -1,0 +1,7 @@
+%td.action
+  = link_to t('action.edit'), edit_resource_path(item)
+
+%td.action
+  = link_to t('action.destroy'), resource_path(item),
+              confirm: t('resource.confirm_destroy'),
+              method: :delete

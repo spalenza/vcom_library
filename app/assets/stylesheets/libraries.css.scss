@@ -1,0 +1,49 @@
+// Place all the styles related to the libraries controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#libraries-page  {  	
+	margin: 0;  	
+	padding: 0;
+	
+	#library_container {
+		width: 100%;
+		
+		#folder_directories {
+			float: left;
+			min-width: 230px;
+			width: 18%;
+			margin: 0;
+
+			#menu_directory {
+				margin: 0;
+				position: fixed;
+				width: 18%;
+				min-width: 230px;
+				padding: 14px 0;
+				background: #D9D9D9;
+				border-bottom: 1px solid #ADADAD;
+				
+				a {
+					padding: 22px;
+					border-right: 1px solid #ADADAD;
+				}
+			}
+			
+			#display_folders {
+				padding: 66px 0px;
+				background: #FFF;
+				min-height: 900px;
+				padding-left: 10px;
+				min-width: 220px;
+				border-right: 1px solid #ADADAD;
+			}
+		}
+
+		#library_content {
+			float: right;
+			width: 80%;  	
+			height: 900px;
+		}
+	}
+}

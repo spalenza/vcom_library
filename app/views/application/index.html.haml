@@ -1,0 +1,11 @@
+.inherited-resource{id: "#{resource_class.model_name.element}", class: [resource_class.model_name.element, "#{action_name}-action"] }
+  = render 'resource_links'
+
+  %h1
+    - if respond_to?(:parent?) && parent?
+      = parent.name || parent.to_s
+      %small= resource_class.model_name.human.pluralize
+    - else
+      = resource_class.model_name.human.pluralize
+
+  = render 'listing'

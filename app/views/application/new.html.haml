@@ -1,0 +1,6 @@
+.inherited-resource{id: "#{resource_class.model_name.element}", class: [resource_class.model_name.element, "#{action_name}-action"] }
+  = render 'resource_links'
+
+  %h1= t('resource.new', :resource => resource_class.model_name.human)
+
+  = render 'form'

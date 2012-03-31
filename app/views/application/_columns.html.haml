@@ -1,0 +1,3 @@
+%td
+  = link_to (item.respond_to?(:name) && item.name) || item.to_s,
+            resource_path(item)

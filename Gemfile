@@ -22,6 +22,36 @@ end
 
 gem 'jquery-rails'
 
+# Annotate Model => https://github.com/ctran/annotate_models
+# gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+
+# Devise => https://github.com/plataformatec/devise
+gem 'devise'
+
+# Inherited Resources => https://github.com/josevalim/inherited_resources
+gem 'inherited_resources'
+
+# Ancestry => https://github.com/stefankroes/ancestry
+gem 'ancestry'
+
+group :assets do 
+  # Haml => http://haml-lang.com/
+  gem "haml"
+
+  # Twitter Bootstrap => https://github.com/seyhunak/twitter-bootstrap-rails
+  gem "twitter-bootstrap-rails"
+  
+  # jsTree Rails => https://github.com/tristanm/jstree-rails
+  gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
+  gem 'jquery-hotkeys-rails'
+  
+  # Compass => https://github.com/Compass/compass-rails
+#  gem 'compass-rails'
+end
+
+# RABL Json => https://github.com/nesquena/rabl
+gem 'rabl'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

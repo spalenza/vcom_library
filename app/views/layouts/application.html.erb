@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VcomLibary</title>
+  <title>VComlib</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body 
+  id='<%= "#{controller_name}-page" -%>'
+  class='<%= "#{controller_name}-#{controller.action_name}" %>'
+>
 
 <%= yield %>
 
