@@ -29,8 +29,16 @@ jQuery ->
 					start_drag: false
 					move_node: false
 					delete_node: false
+					rename_nod: false
 					remove: false
-					
+
+				fixed:
+					start_drag: false
+					move_node: false
+					delete_node: false
+					rename_nod: false
+					remove: false
+						
 				file:
 					valid_children: "none"
 					icon:

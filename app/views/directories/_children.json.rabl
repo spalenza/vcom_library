@@ -1,7 +1,9 @@
 attribute :name => :data
 
 node :attr do |u|
-  if u.class == Directory
+  if u.fixed?
+    attributes :id => u.id, :rel => :fixed
+  elsif u.class == Directory
     attributes :id => u.id, :rel => :folder
   else
     attributes :id => u.id, :rel => :file

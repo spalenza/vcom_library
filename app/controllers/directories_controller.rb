@@ -58,7 +58,7 @@ class DirectoriesController < ApplicationController
     end
     
     def move_file(file, old_directory, new_directory)
-      old_directory.files.delete file
-      new_directory.files.push file
+      old_directory.remove_file file
+      new_directory.add_file file
     end
 end

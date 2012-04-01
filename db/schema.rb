@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(:version => 20120327065124) do
   create_table "directories", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "fixed",      :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "ancestry"
   end
 
