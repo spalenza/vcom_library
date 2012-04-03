@@ -13,7 +13,7 @@ jQuery ->
 jQuery ->
 	$("#display_folders").jstree(
 		plugins:
-			["themes","json_data","ui","crrm","dnd","search","types","hotkeys"]
+			["themes","json_data","ui","crrm","dnd","search","types"]
 
 		themes:
 			theme: 'default'

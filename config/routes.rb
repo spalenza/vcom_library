@@ -12,6 +12,8 @@ VcomLibary::Application.routes.draw do
       get :index
     end
   end
+  
+  resources :vcoms
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
