@@ -11,7 +11,7 @@ class DirectoriesController < ApplicationController
     node_root = Directory.find params[:id]
     @node = node_root.children.create name: params[:name], user: current_user
   
-    render "node.json.rabl"    
+    render "node.json.rabl"
   end
   
   def destroy

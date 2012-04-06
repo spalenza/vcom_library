@@ -11,25 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327065124) do
+ActiveRecord::Schema.define(:version => 20120406023655) do
 
-  create_table "components", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
+  create_table "attributes", :force => true do |t|
     t.integer  "component_id"
+    t.string   "name"
+    t.string   "value"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
 
-  add_index "components", ["component_id"], :name => "index_components_on_component_id"
+  add_index "attributes", ["component_id"], :name => "index_attributes_on_component_id"
 
-  create_table "components_vcoms", :id => false, :force => true do |t|
-    t.integer "vcom_id"
-    t.integer "component_id"
+  create_table "components", :force => true do |t|
+    t.string   "name"
+    t.integer  "vcom_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "ancestry"
   end
 
-  add_index "components_vcoms", ["component_id"], :name => "index_components_vcoms_on_component_id"
-  add_index "components_vcoms", ["vcom_id"], :name => "index_components_vcoms_on_vcom_id"
+  add_index "components", ["ancestry"], :name => "index_components_on_ancestry"
+  add_index "components", ["vcom_id"], :name => "index_components_on_vcom_id"
 
   create_table "directories", :force => true do |t|
     t.string   "name"
@@ -82,11 +85,11 @@ ActiveRecord::Schema.define(:version => 20120327065124) do
   create_table "vcoms", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "xml_path"
     t.boolean  "public"
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "attachment"
   end
 
   add_index "vcoms", ["user_id"], :name => "index_vcoms_on_user_id"

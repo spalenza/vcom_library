@@ -3,7 +3,6 @@ class CreateVcoms < ActiveRecord::Migration
     create_table :vcoms do |t|
       t.string :name
       t.string :description
-      t.string :xml_path
       t.boolean :public
       t.references :user
 

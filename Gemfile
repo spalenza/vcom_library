@@ -57,6 +57,9 @@ gem "carrierwave"
 # Simple form => https://github.com/plataformatec/simple_form
 gem "simple_form"
 
+# Nokogiri => http://nokogiri.org/
+gem "nokogiri"
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

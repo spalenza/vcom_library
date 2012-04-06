@@ -98,21 +98,21 @@ jQuery ->
 						$.jstree.rollback(data.rlbk)
 						
 		).bind("move_node.jstree", (e, data) ->
-				$.ajax
-					async: false
-					type: "POST"
-					url: "/library/directories/" + data.rslt.o.attr("id") + "/move.json"
-					data:
-						new_parent: data.rslt.np.attr("id")
-						old_parent: data.rslt.op.attr("id")
-						type: data.rslt.o.attr("rel")
-							
-					success: (r) ->
-						console.log "success: %o", r
-						data.inst.refresh()
+			$.ajax
+				async: false
+				type: "POST"
+				url: "/library/directories/" + data.rslt.o.attr("id") + "/move.json"
+				data:
+					new_parent: data.rslt.np.attr("id")
+					old_parent: data.rslt.op.attr("id")
+					type: data.rslt.o.attr("rel")
 						
-					error: (r) ->
-						console.log "error: %o", r
-						$.jstree.rollback(data.rlbk)
+				success: (r) ->
+					console.log "success: %o", r
+					data.inst.refresh()
+					
+				error: (r) ->
+					console.log "error: %o", r
+					$.jstree.rollback(data.rlbk)
 		)
 		

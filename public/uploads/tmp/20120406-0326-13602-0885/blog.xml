@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <header>
+        <name>Blog</name>
+        <date>12/03/2012</date>
+        <author>Walace Serafim</author>
+        <description>Vcom blog</description>
+    </header>
+    <vcom>
+        <container>
+            <title>Título do Post</title>
+            <mainpost>
+                <date>Data de Criação do post principal</date>
+                <text>Texto do post principal</text>
+                <who>1</who>
+            </mainpost>
+            <comments>
+                <comment>
+                    <begindate>0</begindate>
+                    <enddate></enddate>
+                    <parent>mainpost</parent>
+                    <text>Texto do comentário</text>
+                    <maxnumber></maxnumber>
+                    <who></who>
+                </comment>
+            </comments>
+        </container>
+        <users>
+            <user>
+                <id>1</id>
+                <name>Walace</name>
+            </user>
+            <user>
+                <id>2</id>
+                <name>Pedro</name>
+            </user>
+            <user>
+                <id>3</id>
+                <name>Crediné</name>
+            </user>
+            <user>
+                <id>4</id>
+                <name>Rodolfo</name>
+            </user>
+        </users>
+    </vcom>
+</root>
