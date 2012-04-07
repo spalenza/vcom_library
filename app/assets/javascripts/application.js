@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require jstree
-//= require jquery-hotkeys
 //= require_tree .

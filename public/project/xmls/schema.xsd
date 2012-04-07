@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+  <!-- Types -->
+  <xs:complexType name="arrayOfInteger">
+    <xs:sequence>
+      <xs:element name="item" type="xs:positiveInteger" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+    
+  <!-- <xs:complexType name="author">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="email" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType> -->
+  
+  <xs:complexType name="comment">
+    <xs:sequence>
+      <xs:element name="datetime" type="xs:string" nillable="true"/>
+      <xs:element name="author" type="xs:string" nillable="true"/>
+      <xs:element name="content" type="xs:string" nillable="true"/>
+    </xs:sequence>
+    <xs:attribute name="max_replay" type="xs:positiveInteger"/>
+  </xs:complexType>
+  
+
+  <xs:complexType name="comments">
+    <xs:sequence>
+      <xs:element name="comment" type="comment" />
+    </xs:sequence>
+    <xs:attribute name="quantity" type="xs:positiveInteger"/>
+  </xs:complexType>
+  
+  <xs:complexType name="vcom">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="vcom" type="vcom"/>
+      <xs:element name="comments" type="comments"/>
+      <xs:element name="title" type="xs:string" nillable="true"/>
+      <xs:element name="text" type="xs:string" nillable="true"/>
+      <xs:element name="users" type="arrayOfInteger"/>      
+    </xs:choice>
+  </xs:complexType>
+  
+  <!-- VCom Schema -->
+  <xs:element name="vcom">
+    <xs:complexType>
+      <xs:sequence>
+        
+        <xs:element name="header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" type="xs:string"/>
+              <xs:element name="datetime" type="xs:dateTime"/>
+              <!-- <xs:element name="author" type="author"/>         -->
+              <xs:element name="author" type="xs:positiveInteger"/>        
+              <xs:element name="public" type="xs:boolean"/>
+              <xs:element name="description" type="xs:string" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+        <xs:element name="body">
+          <xs:complexType>
+            <xs:sequence>
+              
+              <xs:element name="vcom" type="vcom"  maxOccurs="unbounded"/>
+              
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+    
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

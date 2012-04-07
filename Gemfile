@@ -43,7 +43,6 @@ group :assets do
   
   # jsTree Rails => https://github.com/tristanm/jstree-rails
   gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
-  gem 'jquery-hotkeys-rails'
   
   # Compass => https://github.com/Compass/compass-rails
 #  gem 'compass-rails'
@@ -51,6 +50,16 @@ end
 
 # RABL Json => https://github.com/nesquena/rabl
 gem 'rabl'
+
+# Carrierwave => https://github.com/jnicklas/carrierwave
+gem "carrierwave"
+
+# Simple form => https://github.com/plataformatec/simple_form
+gem "simple_form"
+
+# Nokogiri => http://nokogiri.org/
+gem "nokogiri"
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

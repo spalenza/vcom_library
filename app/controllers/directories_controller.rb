@@ -11,7 +11,7 @@ class DirectoriesController < ApplicationController
     node_root = Directory.find params[:id]
     @node = node_root.children.create name: params[:name], user: current_user
   
-    render "node.json.rabl"    
+    render "node.json.rabl"
   end
   
   def destroy
@@ -58,7 +58,7 @@ class DirectoriesController < ApplicationController
     end
     
     def move_file(file, old_directory, new_directory)
-      old_directory.files.delete file
-      new_directory.files.push file
+      old_directory.remove_file file
+      new_directory.add_file file
     end
 end

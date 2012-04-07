@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  vcom: 
+  name: MyString
+  value: MyString
+
+two:
+  vcom: 
+  name: MyString
+  value: MyString

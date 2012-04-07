@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   
   private
     def set_directories
-        self.directory ||= Directory.create name: "root"
-        self.directory.children.create name: "My Vcoms", user: self
+        self.directory ||= Directory.create name: "root", fixed: true
+        self.directory.children.create name: "My Vcoms", user: self, fixed: true
     end
 end

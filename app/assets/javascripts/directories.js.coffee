@@ -13,7 +13,7 @@ jQuery ->
 jQuery ->
 	$("#display_folders").jstree(
 		plugins:
-			["themes","json_data","ui","crrm","dnd","search","types","hotkeys"]
+			["themes","json_data","ui","crrm","dnd","search","types"]
 
 		themes:
 			theme: 'default'
@@ -29,8 +29,16 @@ jQuery ->
 					start_drag: false
 					move_node: false
 					delete_node: false
+					rename_nod: false
 					remove: false
-					
+
+				fixed:
+					start_drag: false
+					move_node: false
+					delete_node: false
+					rename_nod: false
+					remove: false
+						
 				file:
 					valid_children: "none"
 					icon:
@@ -90,21 +98,21 @@ jQuery ->
 						$.jstree.rollback(data.rlbk)
 						
 		).bind("move_node.jstree", (e, data) ->
-				$.ajax
-					async: false
-					type: "POST"
-					url: "/library/directories/" + data.rslt.o.attr("id") + "/move.json"
-					data:
-						new_parent: data.rslt.np.attr("id")
-						old_parent: data.rslt.op.attr("id")
-						type: data.rslt.o.attr("rel")
-							
-					success: (r) ->
-						console.log "success: %o", r
-						data.inst.refresh()
+			$.ajax
+				async: false
+				type: "POST"
+				url: "/library/directories/" + data.rslt.o.attr("id") + "/move.json"
+				data:
+					new_parent: data.rslt.np.attr("id")
+					old_parent: data.rslt.op.attr("id")
+					type: data.rslt.o.attr("rel")
 						
-					error: (r) ->
-						console.log "error: %o", r
-						$.jstree.rollback(data.rlbk)
+				success: (r) ->
+					console.log "success: %o", r
+					data.inst.refresh()
+					
+				error: (r) ->
+					console.log "error: %o", r
+					$.jstree.rollback(data.rlbk)
 		)
 		
