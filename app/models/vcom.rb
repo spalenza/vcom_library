@@ -6,7 +6,10 @@ class Vcom < ActiveRecord::Base
     
     def initialize(opts={})
       @xsd = Nokogiri::XML::Schema(File.read(opts[:xsd]))
-      @doc = Nokogiri::Slop(File.read(opts[:xml])).document
+      slop = Nokogiri::Slop(File.read(opts[:xml]))
+      slop.xpath('//text()[not(normalize-space())]').remove
+      slop.xpath('//comment()').remove
+      @doc = slop.document
     end
   
     def valid?
@@ -23,23 +26,36 @@ class Vcom < ActiveRecord::Base
     
     def author
       user = nil
-      user_id = header.author.text.gsub(/\s+/, "")
-      user = User.find user_id unless User.exist? user_id
+      user_id = header.author.text.to_i
+      user = User.find user_id if User.exists? user_id
+      user
     end
     
-    def datetime
-      header.datetime
+    def registered_at
+      header.datetime.text.to_datetime
+    end
+    
+    def public?
+      header.public.text == "true"
+    end
+    
+    def name
+      header.title.text
+    end
+    
+    def description
+      header.css("description").text
     end
   end
   
-  belongs_to :user
+  belongs_to :author, class_name: "User"
   has_one :body, class_name: "Component"
   has_and_belongs_to_many :directories
   
   validates_presence_of :attachment
 
   before_create :validate_xml
-  after_create :create_body
+  after_create :create_vcom
   
   mount_uploader :attachment, AttachmentUploader
   
@@ -57,8 +73,14 @@ class Vcom < ActiveRecord::Base
         raise ActiveRecord::Rollback 
       end
     end
-
-    def create_body
+    
+    def create_vcom
+      self.author = @xml.author
+      self.description = @xml.description
+      self.name = @xml.name
+      self.public = @xml.public?
+      self.registered_at = @xml.registered_at
+      
       root = @xml.body
       self.build_body name: root.name
       self.body.generate_tree(root) if self.save
@@ -66,6 +88,5 @@ class Vcom < ActiveRecord::Base
     
     def get_header
       header = Nokogiri::Slop File.read(self.attachment.current_path).document.vcom.header
-      
     end
 end

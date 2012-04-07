@@ -84,14 +84,15 @@ ActiveRecord::Schema.define(:version => 20120406023655) do
 
   create_table "vcoms", :force => true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "public"
-    t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "author_id"
+    t.datetime "registered_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "attachment"
   end
 
-  add_index "vcoms", ["user_id"], :name => "index_vcoms_on_user_id"
+  add_index "vcoms", ["author_id"], :name => "index_vcoms_on_author_id"
 
 end

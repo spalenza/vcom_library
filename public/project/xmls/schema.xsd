@@ -50,7 +50,7 @@
         <xs:element name="header">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="name" type="xs:string"/>
+              <xs:element name="title" type="xs:string"/>
               <xs:element name="datetime" type="xs:dateTime"/>
               <!-- <xs:element name="author" type="author"/>         -->
               <xs:element name="author" type="xs:positiveInteger"/>        

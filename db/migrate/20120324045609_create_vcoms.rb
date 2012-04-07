@@ -2,12 +2,13 @@ class CreateVcoms < ActiveRecord::Migration
   def change
     create_table :vcoms do |t|
       t.string :name
-      t.string :description
+      t.text :description
       t.boolean :public
-      t.references :user
+      t.references :author
+      t.datetime :registered_at
 
       t.timestamps
     end
-    add_index :vcoms, :user_id
+    add_index :vcoms, :author_id
   end
 end
