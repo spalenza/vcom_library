@@ -14,10 +14,14 @@ class Component < ActiveRecord::Base
         c_node.generate_tree(child) unless child.children.empty?
        
         child.attributes.each do |name, attribute|
-          self.attributes.create name: attribute.name, value: attribute.value
+          c_node.attributes.create name: attribute.name, value: attribute.value
         end
         
       end
     end
+  end
+  
+  def has_attributes?
+    !self.attributes.empty?
   end
 end

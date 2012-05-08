@@ -1,17 +1,17 @@
 jQuery ->
-	$("#menu_directory a").click ->
+	$(".menu_directory a").click ->
 		switch @id
 			when "add_node"
-				$("#display_folders").jstree "create", null, "last", { attr: { rel: "folder" } }
+				$(".display_folders").jstree "create", null, "last", { attr: { rel: "folder" } }
 			when "remove_node"
-				$("#display_folders").jstree "remove"
+				$(".display_folders").jstree "remove"
 			when "rename_node"
-				$("#display_folders").jstree "rename"
+				$(".display_folders").jstree "rename"
 			else	
 				alert "Invalid field."
 
 jQuery ->
-	$("#display_folders").jstree(
+	$(".display_folders").jstree(
 		plugins:
 			["themes","json_data","ui","crrm","dnd","search","types"]
 

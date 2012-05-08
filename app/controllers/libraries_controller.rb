@@ -4,5 +4,6 @@ class LibrariesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
+    @vcoms = Vcom.all
   end
 end
