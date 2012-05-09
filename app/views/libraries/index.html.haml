@@ -8,9 +8,9 @@
   .library_content
     .header
       = image_tag("libraries/logo.png")
-      .add
-        = simple_form_for Vcom.new, html: { multipart: true } do |f|
-          = f.file_field :attachment
+      / .add
+      /   = simple_form_for Vcom.new, html: { multipart: true } do |f|
+      /     = f.file_field :attachment
     .vcom_container
       .search
       
@@ -45,11 +45,12 @@
                   %i.icon-white.icon-th-list
                   Estrutura
                   .pull-right
-                    = link_to "#" do
-                      %i.icon-white.icon-plus-sign
-                      EXPANDIR
+                    = link_to_function "EXPANDIR", "$('#vcom-#{vcom.id}').jstree('open_all');"
+                      
                 .vcom_struct{ id: "vcom-#{vcom.id}" }
                   = raw create_vcom_tree(vcom.body)
+        
+        = will_paginate @vcoms, previous_label: h("← Anterior"), next_label: h("Próximo →"), class: 'apple_pagination'
   .footer
   
   

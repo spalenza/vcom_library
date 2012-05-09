@@ -10,6 +10,7 @@
 		width: 100%;
 		
 		.folder_directories {
+			position: fixed;
 			float: left;
 			min-width: 230px;
 			width: 18%;
@@ -17,10 +18,9 @@
 
 			.menu_directory {
 				margin: 0;
-				position: fixed;
 				width: 18%;
 				min-width: 230px;
-				padding: 14px 0;
+				padding: 14px 5px 14px 4px;
 				background: #D9D9D9;
 				border-bottom: 1px solid #ADADAD;
 				
@@ -31,16 +31,20 @@
 			}
 			
 			.display_folders {
-				padding: 66px 0px;
+				padding: 10px 0px;
 				background: #FFF;
 				float: left;
 				padding-left: 10px;
 				min-width: 220px;
-				border-right: 1px solid #ADADAD;
+
 			}
 		}
 
 		.library_content {
+			min-height: 700px;
+			min-width: 700px;
+			background: url("background.png") repeat;
+			border-left: 1px solid #ADADAD;
 			float: right;
 			width: 79%;  	
 			padding: 13px;
@@ -78,12 +82,13 @@
 					}
 
 					.vcom_body {
-						padding: 20px 0 20px 0;
+						padding: 20px 0 40px 0;
 
 						.vcom_struct {
 							background: none;
 						}
 					}
+//					aqui devo colocar
 				}
 			}
 					

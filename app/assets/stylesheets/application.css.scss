@@ -2,7 +2,4 @@
 @import "home";
 @import "libraries";
 @import "bootstrap_and_overrides";
-
-body {
-	background: url("background.png") repeat;
-}
+@import "paginate";

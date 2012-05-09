@@ -59,9 +59,11 @@ gem "simple_form"
 # Nokogiri => http://nokogiri.org/
 gem "nokogiri"
 
-
 # Pry => http://pry.github.com/
 gem 'pry', group: :development
+
+# Will_paginate => https://github.com/mislav/will_paginate
+gem 'will_paginate', '~> 3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
