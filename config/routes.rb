@@ -1,18 +1,20 @@
 VcomLibary::Application.routes.draw do
 
   devise_for :users
-  
+
   resource :library do
     resources :directories do
       member do
         post :move
+        post :add_file
+        delete :remove_file
       end
     end
     member do
       get :index
     end
   end
-  
+
   resources :vcoms
 
   # The priority is based upon order of creation:

@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#libraries-page  {  	
-	margin: 0;  	
+#libraries-page  {
+	margin: 0;
 	padding: 0;
-	
+
 	.library_container {
 		width: 100%;
-		
+
 		.folder_directories {
 			position: fixed;
 			float: left;
@@ -23,13 +23,13 @@
 				padding: 14px 5px 14px 4px;
 				background: #D9D9D9;
 				border-bottom: 1px solid #ADADAD;
-				
+
 				a {
 					padding: 22px;
 					border-right: 1px solid #ADADAD;
 				}
 			}
-			
+
 			.display_folders {
 				padding: 10px 0px;
 				background: #FFF;
@@ -46,9 +46,9 @@
 			background: url("background.png") repeat;
 			border-left: 1px solid #ADADAD;
 			float: right;
-			width: 79%;  	
+			width: 79%;
 			padding: 13px;
-			
+
 			.header {
 				padding-bottom: 8px;
 				border-bottom: 1px solid #ADADAD;
@@ -57,28 +57,39 @@
 				img {
 					float: left;
 				}
-				
+
 				.add {
 					float: right;
 					height: 35px;
 				}
 			}
-			
+
 			.vcom_container {
 				float: right;
 				width: 100%;
 				border-top: 3px solid #545454;
 
 				padding-top: 20px;
-				
+
 				.search {
 					height: 150px;
 				}
-				
+
 				.vcom_details {
 					.vcom_name {
-						font-weight:bold;
 						border-bottom: 2px solid #9F171B;
+						padding: 5px;
+						span {
+							font-weight: bold;
+							font-size: 26px;
+							color: #4F4F4F;
+						}
+						.label {
+							padding: 4px 5px;
+								a {
+									color: white;
+								}
+						}
 					}
 
 					.vcom_body {
@@ -91,7 +102,7 @@
 //					aqui devo colocar
 				}
 			}
-					
+
 		}
 	}
 	.footer {
