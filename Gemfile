@@ -18,6 +18,18 @@ group :assets do
   # gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+  
+  # Haml => http://haml-lang.com/
+  gem "haml"
+
+  # Twitter Bootstrap => https://github.com/seyhunak/twitter-bootstrap-rails
+  gem "twitter-bootstrap-rails"
+  
+  # jsTree Rails => https://github.com/tristanm/jstree-rails
+  gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
+  
+  # Compass => https://github.com/Compass/compass-rails
+  gem 'compass-rails'
 end
 
 gem 'jquery-rails'
@@ -34,19 +46,6 @@ gem 'inherited_resources'
 # Ancestry => https://github.com/stefankroes/ancestry
 gem 'ancestry'
 
-group :assets do 
-  # Haml => http://haml-lang.com/
-  gem "haml"
-
-  # Twitter Bootstrap => https://github.com/seyhunak/twitter-bootstrap-rails
-  gem "twitter-bootstrap-rails"
-  
-  # jsTree Rails => https://github.com/tristanm/jstree-rails
-  gem 'jstree-rails', :git => 'git://github.com/tristanm/jstree-rails.git'
-  
-  # Compass => https://github.com/Compass/compass-rails
-#  gem 'compass-rails'
-end
 
 # RABL Json => https://github.com/nesquena/rabl
 gem 'rabl'
@@ -60,6 +59,11 @@ gem "simple_form"
 # Nokogiri => http://nokogiri.org/
 gem "nokogiri"
 
+# Pry => http://pry.github.com/
+gem 'pry', group: :development
+
+# Will_paginate => https://github.com/mislav/will_paginate
+gem 'will_paginate', '~> 3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

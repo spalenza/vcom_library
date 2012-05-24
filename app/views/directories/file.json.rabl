@@ -1,2 +1,2 @@
-object @new_node
+object @file
 attribute :id, :name

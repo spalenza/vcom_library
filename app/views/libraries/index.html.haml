@@ -1,15 +1,82 @@
-#library_container
-  #folder_directories
-    #menu_directory
-      .btn-group
-        = link_to image_tag("libraries/icons/folder_plus.png"), "#", id: "add_node", title: "Criar Pasta"
-        = link_to image_tag("libraries/icons/folder_minus.png"), "#", id: "remove_node", title: "Apagar"
-        = link_to image_tag("libraries/icons/folder_rename.png"), "#", id: "rename_node", title: "Renomear"
+.library_container
+  .folder_directories
+    .menu_directory
+      = render :partial => 'menu_directory'
 
-    #display_folders
-        
-  #library_content
-    #search
-    
-    #
-  #footer
+    .display_folders
+
+  .library_content
+    .header
+      = image_tag("libraries/logo.png")
+      / .add
+      /   = simple_form_for Vcom.new, html: { multipart: true } do |f|
+      /     = f.file_field :attachment
+    .vcom_container
+      .search
+
+      .vcom_details
+        - @vcoms.each do |vcom|
+          .vcom
+            .vcom_name
+              %span= vcom.name
+              .pull-right
+                .label.label-info
+                  = link_to "← ADICIONAR", vcom.id.to_s, id: "add_file", title: vcom.name, class: "add_file"
+
+            .row.vcom_body
+              .span6.vcom_header
+                .label.label-inverse
+                  %i.icon-white.icon-user
+                  Autor
+                = vcom.author.email
+                %br
+                %br
+
+                .label.label-inverse
+                  %i.icon-white.icon-align-left
+                  Descrição
+                = vcom.description
+                %br
+                %br
+
+                .label.label-inverse
+                  %i.icon-white.icon-time
+                  Data de Criação
+                = l vcom.registered_at, format: :long
+
+              .pull-right
+                .span4
+                  .label.label-inverse
+                    %i.icon-white.icon-th-list
+                    Estrutura
+                    .pull-right
+                      = link_to_function "EXPANDIR", "$('#vcom-#{vcom.id}').jstree('open_all');", style: "color: #E9E9E9"
+
+                  .vcom_struct{ id: "vcom-#{vcom.id}" }
+                    = raw create_vcom_tree(vcom.body)
+
+        = will_paginate @vcoms, previous_label: h("← Anterior"), next_label: h("Próximo →"), class: 'apple_pagination'
+  .footer
+
+
+  / = raw create_vcom_tree(@vcoms.first.body)
+  / #carousel_vcoms.carousel
+  /   .carousel-inner
+  /     .active.item
+  /       = image_tag("http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-03.jpg")
+  /       .carousel-caption
+  /         %h4 First Thumbnail label
+  /         %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+  /     .item
+  /       = image_tag("http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg")
+  /       .carousel-caption
+  /         %h4 First Thumbnail label
+  /         %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+  /     .item
+  /       = image_tag("http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-02.jpg")
+  /       .carousel-caption
+  /         %h4 First Thumbnail label
+  /         %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+  /
+  /   = link_to raw("&lsaquo;"), "#carousel_vcoms", class: "carousel-control left", :"data-slide" => "prev"
+  /   = link_to raw("&rsaquo;"), "#carousel_vcoms", class: "carousel-control right", :"data-slide" => "next"

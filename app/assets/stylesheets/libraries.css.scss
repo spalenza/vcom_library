@@ -2,49 +2,114 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#libraries-page  {  	
-	margin: 0;  	
+#libraries-page  {
+	margin: 0;
 	padding: 0;
-	
-	#library_container {
+
+	.library_container {
 		width: 100%;
-		
-		#folder_directories {
+
+		.folder_directories {
+			position: fixed;
 			float: left;
 			min-width: 230px;
 			width: 18%;
 			margin: 0;
 
-			#menu_directory {
+			.menu_directory {
 				margin: 0;
-				position: fixed;
 				width: 18%;
 				min-width: 230px;
-				padding: 14px 0;
+				padding: 14px 5px 14px 4px;
 				background: #D9D9D9;
 				border-bottom: 1px solid #ADADAD;
-				
+
 				a {
 					padding: 22px;
 					border-right: 1px solid #ADADAD;
 				}
 			}
-			
-			#display_folders {
-				padding: 66px 0px;
+
+			.display_folders {
+				padding: 10px 0px;
 				background: #FFF;
-				min-height: 900px;
+				float: left;
 				padding-left: 10px;
 				min-width: 220px;
-				border-right: 1px solid #ADADAD;
+
 			}
 		}
 
-		#library_content {
+		.library_content {
+			min-height: 700px;
+			min-width: 700px;
+			background: url("background.png") repeat;
+			border-left: 1px solid #ADADAD;
 			float: right;
-			width: 80%;  	
-			height: 900px;
-			padding: 10px;
+			width: 79%;
+			padding: 13px;
+
+			.header {
+				padding-bottom: 8px;
+				border-bottom: 1px solid #ADADAD;
+				float: left;
+				width: 100%;
+				img {
+					float: left;
+				}
+
+				.add {
+					float: right;
+					height: 35px;
+				}
+			}
+
+			.vcom_container {
+				float: right;
+				width: 100%;
+				border-top: 3px solid #545454;
+
+				padding-top: 20px;
+
+				.search {
+					height: 150px;
+				}
+
+				.vcom_details {
+					.vcom_name {
+						border-bottom: 2px solid #9F171B;
+						padding: 5px;
+						span {
+							font-weight: bold;
+							font-size: 26px;
+							color: #4F4F4F;
+						}
+						.label {
+							padding: 4px 5px;
+								a {
+									color: white;
+								}
+						}
+					}
+
+					.vcom_body {
+						padding: 20px 0 40px 0;
+
+						.vcom_struct {
+							background: none;
+						}
+					}
+//					aqui devo colocar
+				}
+			}
+
 		}
 	}
+	.footer {
+		float: left;
+		width: 100%;
+		height: 1px;
+	}
 }
+
+
