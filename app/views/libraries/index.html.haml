@@ -7,58 +7,27 @@
 
   .library_content
     .header
-      = image_tag("libraries/logo.png")
-      / .add
-      /   = simple_form_for Vcom.new, html: { multipart: true } do |f|
-      /     = f.file_field :attachment
-    .vcom_container
+      = link_to image_tag("libraries/logo.png"), library_path
+
       .search
+        = form_tag search_library_path, :method => 'get', remote: true do
+          = text_field_tag :keywords, params[:keywords], class: 'search-query', placeholder: "Busca por Nome..."
+          = submit_tag "Search", :name => nil, class: 'btn'
+          = link_to "Busca Avançada", "#"
+
+    .vcom_container
+      .advanced_search
 
       .vcom_details
-        - @vcoms.each do |vcom|
-          .vcom
-            .vcom_name
-              %span= vcom.name
-              .pull-right
-                .label.label-info
-                  = link_to "← ADICIONAR", vcom.id.to_s, id: "add_file", title: vcom.name, class: "add_file"
-
-            .row.vcom_body
-              .span6.vcom_header
-                .label.label-inverse
-                  %i.icon-white.icon-user
-                  Autor
-                = vcom.author.email
-                %br
-                %br
-
-                .label.label-inverse
-                  %i.icon-white.icon-align-left
-                  Descrição
-                = vcom.description
-                %br
-                %br
-
-                .label.label-inverse
-                  %i.icon-white.icon-time
-                  Data de Criação
-                = l vcom.registered_at, format: :long
-
-              .pull-right
-                .span4
-                  .label.label-inverse
-                    %i.icon-white.icon-th-list
-                    Estrutura
-                    .pull-right
-                      = link_to_function "EXPANDIR", "$('#vcom-#{vcom.id}').jstree('open_all');", style: "color: #E9E9E9"
-
-                  .vcom_struct{ id: "vcom-#{vcom.id}" }
-                    = raw create_vcom_tree(vcom.body)
-
+        = render 'vcom_details'
         = will_paginate @vcoms, previous_label: h("← Anterior"), next_label: h("Próximo →"), class: 'apple_pagination'
   .footer
 
 
+
+  / .add
+  /   = simple_form_for Vcom.new, html: { multipart: true } do |f|
+  /     = f.file_field :attachment
   / = raw create_vcom_tree(@vcoms.first.body)
   / #carousel_vcoms.carousel
   /   .carousel-inner

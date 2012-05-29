@@ -12,6 +12,7 @@ VcomLibary::Application.routes.draw do
     end
     member do
       get :index
+      get :search
     end
   end
 

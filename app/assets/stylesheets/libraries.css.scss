@@ -50,17 +50,24 @@
 			padding: 13px;
 
 			.header {
-				padding-bottom: 8px;
 				border-bottom: 1px solid #ADADAD;
+				height: 60px;
 				float: left;
 				width: 100%;
 				img {
+					padding-top: 6px;
 					float: left;
 				}
-
 				.add {
 					float: right;
 					height: 35px;
+				}
+				.search {
+					float: right;
+					a {
+						padding: 4px 0 0 12px;
+						display: block;
+					}
 				}
 			}
 
@@ -70,10 +77,6 @@
 				border-top: 3px solid #545454;
 
 				padding-top: 20px;
-
-				.search {
-					height: 150px;
-				}
 
 				.vcom_details {
 					.vcom_name {

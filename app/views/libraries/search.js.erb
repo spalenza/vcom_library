@@ -1,0 +1,10 @@
+$(".vcom_details").html("");
+$('.vcom_details').append("<%= escape_javascript render(:file => 'libraries/_vcom_details.html.haml') %>");
+
+$(".vcom_details .vcom_body .vcom_struct").jstree({
+	"plugins": [ "themes", "html_data", "types" ],
+
+	"themes": {
+		"icons": false
+	}
+})
