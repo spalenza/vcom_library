@@ -1,10 +1,13 @@
+# encoding: UTF-8
+
 class LibrariesController < ApplicationController
   respond_to :html, :json
 
   before_filter :authenticate_user!
 
   def index
-    @vcoms = Vcom.page(params[:page]).per_page(5)
+    @vcoms = Vcom.where("public = ?", true).order(:created_at).page(params[:page]).per_page(5)
+    @search = Search.new
   end
 
   def search
@@ -16,7 +19,7 @@ class LibrariesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js { render 'empty_search' }
+        format.js { render 'searches/empty_search' }
       end
     end
   end

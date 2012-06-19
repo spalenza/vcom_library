@@ -84,6 +84,7 @@ class Vcom < ActiveRecord::Base
       root = @xml.body
       self.build_body name: root.name
       self.body.generate_tree(root) if self.save
+      self.author.my_vcoms_directory.add_file(self) unless self.author.nil?
     end
 
     def get_header

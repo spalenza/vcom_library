@@ -3,8 +3,13 @@
     .vcom_name
       %span= vcom.name
       .pull-right
-        .label.label-info
-          = link_to "← ADICIONAR", vcom.id.to_s, id: "add_file", title: vcom.name, class: "add_file"
+        .label.label-info.pull-right{style: "margin-left: 6px"}
+          = link_to vcom.id.to_s, id: "add_file", title: vcom.name, class: "add_file" do
+            %i.icon-star.icon-white
+
+        .label.label-success.pull-right
+          = link_to "#" do
+            %i.icon-ok.icon-white
 
     .row.vcom_body
       .span6.vcom_header

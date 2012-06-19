@@ -10,17 +10,16 @@
       = link_to image_tag("libraries/logo.png"), library_path
 
       .search
-        = form_tag search_library_path, :method => 'get', remote: true do
-          = text_field_tag :keywords, params[:keywords], class: 'search-query', placeholder: "Busca por Nome..."
-          = submit_tag "Search", :name => nil, class: 'btn'
-          = link_to "Busca Avançada", "#"
+        = render 'search'
 
     .vcom_container
-      .advanced_search
+      .advanced_search{style: "display: none;"}
+        = render 'searches/form'
 
       .vcom_details
         = render 'vcom_details'
-        = will_paginate @vcoms, previous_label: h("← Anterior"), next_label: h("Próximo →"), class: 'apple_pagination'
+        .paginate
+          = will_paginate @vcoms, previous_label: h("← Anterior"), next_label: h("Próximo →"), class: 'apple_pagination'
   .footer
 
 

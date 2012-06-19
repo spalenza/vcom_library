@@ -1,0 +1,4 @@
+= form_tag search_library_path, :method => 'get', remote: true do
+  = text_field_tag :keywords, params[:keywords], class: 'search-query', placeholder: "Busca por nome..."
+  = submit_tag "Buscar", :name => nil, class: 'btn'
+  = link_to "Busca Avançada", "#"

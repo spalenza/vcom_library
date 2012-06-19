@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class Directory < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :files, class_name: "Vcom", :before_add => :validates_files
