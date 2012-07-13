@@ -16,7 +16,7 @@
         .label.label-inverse
           %i.icon-white.icon-user
           Autor
-        = vcom.author.email
+        = vcom.author.name.nil? ? vcom.author.email : vcom.author.name
         %br
         %br
 

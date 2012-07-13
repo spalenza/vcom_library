@@ -15,11 +15,6 @@ jQuery ->
 			else
 				alert "Invalid field."
 
-
-jQuery ->
-	$("ul").hover (event) ->
-		alert "teste"
-
 jQuery ->
 	$(".display_folders").jstree(
 		plugins:

@@ -10,7 +10,7 @@ module LibrariesHelper
         html << "#{link}"
 
         create_vcom_tree(child, html) unless child.children.empty?
-        
+
         if child.has_attributes?
           html << "<ul>"
           child.attributes.each do |atribute|
@@ -21,14 +21,14 @@ module LibrariesHelper
           end
           html << "</ul>"
         end
-        
+
         html << "</li>"
       end
       html << "</ul>"
     end
     html
   end
-  
+
   protected
     def name_icon(name)
       case name
@@ -51,7 +51,7 @@ module LibrariesHelper
       when "content"
         "icon-align-justify"
       else
-        "icon-file"
+        "icon-question-sign"
       end
     end
 end

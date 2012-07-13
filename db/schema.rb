@@ -14,25 +14,14 @@
 ActiveRecord::Schema.define(:version => 20120531030744) do
 
   create_table "attributes", :force => true do |t|
-    t.integer  "component_id"
+    t.integer  "element_id"
     t.string   "name"
     t.string   "value"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "attributes", ["component_id"], :name => "index_attributes_on_component_id"
-
-  create_table "components", :force => true do |t|
-    t.string   "name"
-    t.integer  "vcom_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "ancestry"
   end
 
-  add_index "components", ["ancestry"], :name => "index_components_on_ancestry"
-  add_index "components", ["vcom_id"], :name => "index_components_on_vcom_id"
+  add_index "attributes", ["element_id"], :name => "index_attributes_on_element_id"
 
   create_table "directories", :force => true do |t|
     t.string   "name"
@@ -53,6 +42,17 @@ ActiveRecord::Schema.define(:version => 20120531030744) do
 
   add_index "directories_vcoms", ["directory_id"], :name => "index_directories_vcoms_on_directory_id"
   add_index "directories_vcoms", ["vcom_id"], :name => "index_directories_vcoms_on_vcom_id"
+
+  create_table "elements", :force => true do |t|
+    t.string   "name"
+    t.integer  "vcom_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "ancestry"
+  end
+
+  add_index "elements", ["ancestry"], :name => "index_elements_on_ancestry"
+  add_index "elements", ["vcom_id"], :name => "index_elements_on_vcom_id"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
