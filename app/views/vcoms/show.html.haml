@@ -1,0 +1,38 @@
+.vcom_name
+  %span= @vcom.name
+  .pull-right
+    .label.label-success.pull-right
+      = link_to "#" do
+        %i.icon-ok.icon-white
+
+.row.vcom_body
+  .span6.vcom_header
+    .label.label-inverse
+      %i.icon-white.icon-user
+      Autor
+    = @vcom.author.email
+    %br
+    %br
+
+    .label.label-inverse
+      %i.icon-white.icon-align-left
+      Descrição
+    = @vcom.description
+    %br
+    %br
+
+    .label.label-inverse
+      %i.icon-white.icon-time
+      Data de Criação
+    = l @vcom.registered_at, format: :long
+
+  .pull-right
+    .span4
+      .label.label-inverse
+        %i.icon-white.icon-th-list
+        Estrutura
+        .pull-right
+          = link_to_function "EXPANDIR", "$('#vcom-#{@vcom.id}').jstree('open_all');", style: "color: #E9E9E9"
+
+      .vcom_struct{ id: "vcom-#{@vcom.id}" }
+        = raw create_vcom_tree(@vcom.body)

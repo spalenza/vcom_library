@@ -21,13 +21,13 @@ xsd.validate(doc).each do |error|
   puts error.message
 end
 
-if xsd.valid?(doc)
-  body = doc.css("body").first
-  # body.each do |vcom|
-  #   puts vcom.name if vcom.element?
-  # end
-  vcom_tree(body, 1)
-end
+# if xsd.valid?(doc)
+#   body = doc.css("body").first
+#   # body.each do |vcom|
+#   #   puts vcom.name if vcom.element?
+#   # end
+#   vcom_tree(body, 1)
+# end
 
 file.close
 

@@ -41,7 +41,7 @@
 		}
 
 		.library_content {
-			min-height: 700px;
+			min-height: 1000px;
 			min-width: 700px;
 			background: url("background.png") repeat;
 			border-left: 1px solid #ADADAD;
@@ -50,17 +50,31 @@
 			padding: 13px;
 
 			.header {
-				padding-bottom: 8px;
 				border-bottom: 1px solid #ADADAD;
+				height: 60px;
 				float: left;
 				width: 100%;
 				img {
+					padding-top: 6px;
 					float: left;
 				}
-
 				.add {
 					float: right;
 					height: 35px;
+				}
+				.search {
+					float: right;
+					a {
+					  padding: 4px 0 0 12px;
+						display: block;
+					}
+					.advanced_search_link {
+					  float: left;
+					}
+					.logout_link {
+					  float: right;
+            padding: 3px 12px 0 0;
+					}
 				}
 			}
 
@@ -70,10 +84,6 @@
 				border-top: 3px solid #545454;
 
 				padding-top: 20px;
-
-				.search {
-					height: 150px;
-				}
 
 				.vcom_details {
 					.vcom_name {
@@ -100,6 +110,17 @@
 						}
 					}
 //					aqui devo colocar
+				}
+				.advanced_search {
+					#close {
+						height: 15px;
+						width: 100%;
+						background: black;
+						opacity: 0.2;
+					  filter: alpha(opacity=20);
+						margin: auto;
+						text-align: center;
+					}
 				}
 			}
 

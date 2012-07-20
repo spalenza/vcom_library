@@ -11,28 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406023655) do
+ActiveRecord::Schema.define(:version => 20120530121151) do
 
   create_table "attributes", :force => true do |t|
-    t.integer  "component_id"
+    t.integer  "element_id"
     t.string   "name"
     t.string   "value"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "attributes", ["component_id"], :name => "index_attributes_on_component_id"
-
-  create_table "components", :force => true do |t|
-    t.string   "name"
-    t.integer  "vcom_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "ancestry"
   end
 
-  add_index "components", ["ancestry"], :name => "index_components_on_ancestry"
-  add_index "components", ["vcom_id"], :name => "index_components_on_vcom_id"
+  add_index "attributes", ["element_id"], :name => "index_attributes_on_element_id"
 
   create_table "directories", :force => true do |t|
     t.string   "name"
@@ -54,19 +43,29 @@ ActiveRecord::Schema.define(:version => 20120406023655) do
   add_index "directories_vcoms", ["directory_id"], :name => "index_directories_vcoms_on_directory_id"
   add_index "directories_vcoms", ["vcom_id"], :name => "index_directories_vcoms_on_vcom_id"
 
-  create_table "profiles", :force => true do |t|
-    t.integer  "user_id"
+  create_table "elements", :force => true do |t|
     t.string   "name"
-    t.string   "image"
+    t.integer  "vcom_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "ancestry"
   end
 
-  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+  add_index "elements", ["ancestry"], :name => "index_elements_on_ancestry"
+  add_index "elements", ["vcom_id"], :name => "index_elements_on_vcom_id"
+
+  create_table "searches", :force => true do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "element_tokens"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "name"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

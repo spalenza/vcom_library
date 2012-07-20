@@ -130,10 +130,25 @@ jQuery ->
 					type: data.rslt.o.attr("rel")
 
 				success: (r) ->
-					console.log "success: %o", r
 					data.inst.refresh()
 
 				error: (r) ->
-					console.log "error: %o", r
 					$.jstree.rollback(data.rlbk)
-		)
+		).bind("select_node.jstree", (e, data) ->
+      type = data.rslt.obj.attr("rel")
+      if type == "file"
+        $.ajax
+          type: "GET"
+          url: "/vcoms/" + data.rslt.obj.attr("id") + ".js"
+
+          success: (r) ->
+            $(".vcom_details").html(r)
+            $(".vcom_details .vcom_body .vcom_struct").jstree(
+              plugins:
+                [ "themes", "html_data", "types" ]
+              themes:
+                icons: false
+            )
+          error: (r) ->
+            console.log "error: " + r
+    )
