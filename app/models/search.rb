@@ -13,22 +13,21 @@ class Search < ActiveRecord::Base
       vcoms = vcoms.where("name like ?", "%#{name}%") unless name.empty?
       vcoms = vcoms.where("author_id = ?", user_id) if user_id.present?
 
-      binding.pry
+      vcoms = vcoms.to_a
+
       unless self.element_tokens.empty?
-        vcoms.each do |vcom|
+        Array.new(vcoms).each do |vcom|
           vcoms.delete(vcom) unless find_attributes(vcom)
         end
       end
-
       vcoms
     end
 
     def find_attributes(vcom)
-      attributes = vcom.body.subtree.all.map(&:name)
-      self.element_tokens.each do |element|
-        if attributes.include? element
-          return true
-        end
+      if vcom.body.subtree.find_all_by_name(self.element_tokens).size == self.element_tokens.size
+        true
+      else
+        false
       end
     end
 end

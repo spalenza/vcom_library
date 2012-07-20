@@ -6,6 +6,7 @@ class SearchesController < InheritedResources::Base
   def create
     user = User.find_by_name(params[:search][:user_id])
     params[:search][:user_id] = params[:search][:user_id].to_s.empty? ? nil : (user.nil? ? 0 : user.try(:id))
+    params[:search][:element_tokens] = params[:search][:element_tokens].split(',')
     @search = Search.create!(params[:search])
     redirect_to @search
   end
@@ -17,6 +18,6 @@ class SearchesController < InheritedResources::Base
   end
 
   def elements
-    @elements = Element.where("name like ?", "%#{params[:q]}%").uniq(&:name)
+    @elements = Element.where("name like ?", "%#{params[:q]}%").uniq!(&:name)
   end
 end
