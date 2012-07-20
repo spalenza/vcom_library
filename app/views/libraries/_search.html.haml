@@ -1,4 +1,8 @@
 = form_tag search_library_path, :method => 'get', remote: true do
   = text_field_tag :keywords, params[:keywords], class: 'search-query', placeholder: "Busca por nome..."
   = submit_tag "Buscar", :name => nil, class: 'btn'
-  = link_to "Busca Avançada", "#"
+  .links
+    .advanced_search_link
+      = link_to "Busca Avançada", "#"
+    .logout_link
+      = link_to "Logout", destroy_user_session_path, method: :delete
