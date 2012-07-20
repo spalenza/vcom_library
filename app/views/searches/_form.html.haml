@@ -2,7 +2,8 @@
   = f.input :name
   = f.label :user_id
   = f.text_field :user_id
-  = f.input :comments
+  = f.label :element_tokens, "Elements"
+  = f.text_field :element_tokens, name: 'search[element_tokens][]'
   %br
   = f.button :submit, "Buscar"
 

@@ -6,7 +6,7 @@ class LibrariesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @vcoms = Vcom.where("public = ?", true).order('created_at DESC').page(params[:page]).per_page(5)
+    @vcoms = Vcom.where("public = ? OR author_id = ?", true, current_user.id).order('created_at DESC').page(params[:page]).per_page(5)
     @search = Search.new
   end
 

@@ -2,6 +2,8 @@
 require 'nokogiri'
 
 class Element < ActiveRecord::Base
+  attr_accessible :name, :vcom
+
   belongs_to :vcom
   has_many :attributes
 

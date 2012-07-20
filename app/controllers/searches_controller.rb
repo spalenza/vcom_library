@@ -15,4 +15,8 @@ class SearchesController < InheritedResources::Base
     @vcoms = search.vcoms
     render 'empty_search' if @vcoms.empty?
   end
+
+  def elements
+    @elements = Element.where("name like ?", "%#{params[:q]}%").uniq(&:name)
+  end
 end

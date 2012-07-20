@@ -3,7 +3,7 @@ class CreateSearches < ActiveRecord::Migration
     create_table :searches do |t|
       t.string :name
       t.integer :user_id
-      t.boolean :comments
+      t.string :element_tokens
 
       t.timestamps
     end

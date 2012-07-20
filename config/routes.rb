@@ -20,6 +20,8 @@ VcomLibary::Application.routes.draw do
 
   resources :searches
 
+  match 'elements(.:format)' => 'searches#elements'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
 
   has_many :vcoms
   has_one :directory
-  has_one :profile
 
   after_create :set_directories
 

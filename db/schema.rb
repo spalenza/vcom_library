@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120531030744) do
+ActiveRecord::Schema.define(:version => 20120530121151) do
 
   create_table "attributes", :force => true do |t|
     t.integer  "element_id"
@@ -54,27 +54,18 @@ ActiveRecord::Schema.define(:version => 20120531030744) do
   add_index "elements", ["ancestry"], :name => "index_elements_on_ancestry"
   add_index "elements", ["vcom_id"], :name => "index_elements_on_vcom_id"
 
-  create_table "profiles", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "name"
-    t.string   "image"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
-
   create_table "searches", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.boolean  "comments"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "element_tokens"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "name"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -85,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20120531030744) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
-    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
