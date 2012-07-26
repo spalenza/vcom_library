@@ -24,6 +24,7 @@ class Vcom < ActiveRecord::Base
     end
 
     def create_vcom
+      self.vcom_id = @xml.id
       self.author = @xml.author
       self.description = @xml.description
       self.name = @xml.name

@@ -6,6 +6,7 @@ class CreateVcoms < ActiveRecord::Migration
       t.boolean :public
       t.references :author
       t.datetime :registered_at
+      t.integer :vcom_id
 
       t.timestamps
     end

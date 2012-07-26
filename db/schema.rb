@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20120530121151) do
     t.boolean  "public"
     t.integer  "author_id"
     t.datetime "registered_at"
+    t.integer  "vcom_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "attachment"

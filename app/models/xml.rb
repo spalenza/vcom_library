@@ -41,6 +41,10 @@ class Xml
     header.title.text
   end
 
+  def id
+    header.id.text.to_i
+  end
+
   def description
     header.css("description").text
   end
