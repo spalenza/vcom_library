@@ -36,18 +36,22 @@
 				float: left;
 				padding-left: 10px;
 				min-width: 220px;
+        min-height: 1000px;
 
 			}
 		}
 
 		.library_content {
-			min-height: 1000px;
-			min-width: 700px;
+      min-height: 1000px;
+			min-width: 701px;
 			background: url("background.png") repeat;
 			border-left: 1px solid #ADADAD;
-			float: right;
+//      float: right;
 			width: 79%;
 			padding: 13px;
+//ADD NEW
+      position: absolute;
+      margin-left: 239px;
 
 			.header {
 				border-bottom: 1px solid #ADADAD;

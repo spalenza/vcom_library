@@ -24,10 +24,6 @@ class Search < ActiveRecord::Base
     end
 
     def find_attributes(vcom)
-      if vcom.body.subtree.find_all_by_name(self.element_tokens).size == self.element_tokens.size
-        true
-      else
-        false
-      end
+      vcom.body.subtree.find_all_by_name(self.element_tokens).uniq { |s| s.name }.size == self.element_tokens.size
     end
 end
